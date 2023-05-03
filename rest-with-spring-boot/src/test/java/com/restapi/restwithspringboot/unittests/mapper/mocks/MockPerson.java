@@ -1,7 +1,7 @@
 package com.restapi.restwithspringboot.unittests.mapper.mocks;
 
 import com.restapi.restwithspringboot.models.Person;
-import com.restapi.restwithspringboot.vo.PersonVO;
+import com.restapi.restwithspringboot.data.vo.v1.PersonVO;
 
 import java.util.ArrayList;
 import java.util.List;

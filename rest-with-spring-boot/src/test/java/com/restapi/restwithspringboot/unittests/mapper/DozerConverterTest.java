@@ -3,7 +3,7 @@ package com.restapi.restwithspringboot.unittests.mapper;
 import com.restapi.restwithspringboot.mapper.DozerMapper;
 import com.restapi.restwithspringboot.models.Person;
 import com.restapi.restwithspringboot.unittests.mapper.mocks.MockPerson;
-import com.restapi.restwithspringboot.vo.PersonVO;
+import com.restapi.restwithspringboot.data.vo.v1.PersonVO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package com.restapi.restwithspringboot.vo;
+package com.restapi.restwithspringboot.data.vo.v1;
 
 import java.util.Objects;
 

@@ -1,8 +1,10 @@
 package com.restapi.restwithspringboot.services;
 
+import com.restapi.restwithspringboot.data.vo.v2.PersonVOV2;
 import com.restapi.restwithspringboot.mapper.DozerMapper;
+import com.restapi.restwithspringboot.mapper.custom.PersonMapper;
 import com.restapi.restwithspringboot.models.Person;
-import com.restapi.restwithspringboot.vo.PersonVO;
+import com.restapi.restwithspringboot.data.vo.v1.PersonVO;
 import com.restapi.restwithspringboot.exceptions.ResourceNotFoundException;
 import com.restapi.restwithspringboot.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ public class PersonService {
 
     @Autowired
     private PersonRepository personRepository;
+    @Autowired
+    PersonMapper mapper;
 
     public List<PersonVO> findAll() {
         logger.info("Finding all people!");
@@ -30,10 +34,18 @@ public class PersonService {
     }
 
     public PersonVO create(PersonVO person) {
-
         logger.info("Creating one person!");
+
         var entity = DozerMapper.parseObject(person, Person.class);
         var vo =  DozerMapper.parseObject(personRepository.save(entity), PersonVO.class);
+        return vo;
+    }
+
+    public PersonVOV2 createV2(PersonVOV2 person) {
+        logger.info("Creating one person! - V2");
+
+        var entity =  mapper.convertVoToEntity(person);
+        var vo = mapper.convertEntityToVo(personRepository.save(entity));
         return vo;
     }
 
@@ -57,4 +69,6 @@ public class PersonService {
         var entity = personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
         personRepository.delete(entity);
     }
+
+
 }
