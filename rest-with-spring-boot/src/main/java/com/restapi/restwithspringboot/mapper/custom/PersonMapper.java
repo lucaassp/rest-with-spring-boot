@@ -2,9 +2,11 @@ package com.restapi.restwithspringboot.mapper.custom;
 
 import com.restapi.restwithspringboot.data.vo.v2.PersonVOV2;
 import com.restapi.restwithspringboot.models.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
+@Service
 public class PersonMapper {
 
     public PersonVOV2 convertEntityToVo(Person person) {
@@ -15,7 +17,7 @@ public class PersonMapper {
         vo.setLastName(person.getLastName());
         vo.setGender(person.getGender());
         vo.setAddress(person.getAddress());
-        vo.setBithDay(new Date());
+        vo.setBirthDay(new Date());
 
         return vo;
     }

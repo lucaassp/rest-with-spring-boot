@@ -5,15 +5,17 @@ import java.util.Objects;
 
 public class PersonVOV2 {
 
+    private static final long serialVersionUID = 1L;
+
     private Long id;
     private String firstName;
     private String lastName;
     private String address;
     private String gender;
-    private Date bithDay;
 
-    public PersonVOV2() {
-    }
+    private Date birthDay;
+
+    public PersonVOV2() {}
 
     public Long getId() {
         return id;
@@ -55,23 +57,23 @@ public class PersonVOV2 {
         this.gender = gender;
     }
 
-    public Date getBithDay() {
-        return bithDay;
+    public Date getBirthDay() {
+        return birthDay;
     }
 
-    public void setBithDay(Date bithDay) {
-        this.bithDay = bithDay;
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof PersonVOV2 that)) return false;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && Objects.equals(getAddress(), that.getAddress()) && Objects.equals(getGender(), that.getGender()) && Objects.equals(getBithDay(), that.getBithDay());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && Objects.equals(getAddress(), that.getAddress()) && Objects.equals(getGender(), that.getGender()) && Objects.equals(getBirthDay(), that.getBirthDay());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender(), getBithDay());
+        return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender(), getBirthDay());
     }
 }
