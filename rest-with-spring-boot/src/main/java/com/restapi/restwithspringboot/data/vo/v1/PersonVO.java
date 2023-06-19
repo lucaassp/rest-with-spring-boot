@@ -1,7 +1,10 @@
 package com.restapi.restwithspringboot.data.vo.v1;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.util.Objects;
 
+@JsonPropertyOrder({"id", "firstName", "lastName", "address", "gender"})
 public class PersonVO {
 
     private Long id;
